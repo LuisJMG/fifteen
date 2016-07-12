@@ -150,7 +150,7 @@ void greet(void)
 {
     clear();
     printf("WELCOME TO GAME OF FIFTEEN\n");
-    usleep(2000000);
+    usleep(200000);
 }
 
 /**
@@ -159,7 +159,16 @@ void greet(void)
  */
 void init(void)
 {
-    // TODO
+
+	int aux = d*d;
+
+	// for loop to fill a so called "x" in the board's 2d array
+	for (int i = 0; i < d; i++)
+	{
+		board[0][i] = aux - 1;
+
+		aux = aux - 1;
+	}
 }
 
 /**
@@ -167,7 +176,10 @@ void init(void)
  */
 void draw(void)
 {
-    // TODO
+	for (int i = 0; i < d; i++)
+	{
+		printf ("board[0][%d] = %d\n", i, board[0][i]);
+	}
 }
 
 /**
