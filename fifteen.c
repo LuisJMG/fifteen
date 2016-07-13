@@ -159,15 +159,32 @@ void greet(void)
  */
 void init(void)
 {
+	// Size of the board, being dxd
+	int size = d * d;
 
-	int aux = d*d;
+	bool even = false;
 
-	// for loop to fill a so called "x" in the board's 2d array
+	// Checks if even
+	if (size % 2 == 0)
+	{
+		even = true;
+	}
+
+	// A nested loop is needed here
 	for (int i = 0; i < d; i++)
 	{
-		board[0][i] = aux - 1;
+		for (int j = 0; j < d; j++)
+		{
+			board[i][j] = size - 1;
+			size -= 1;
+		}
 
-		aux = aux - 1;
+	}
+
+	if (even)
+	{
+		board[d-1][d-2] = 2;
+		board[d-1][d-3] = 1;
 	}
 }
 
@@ -178,7 +195,10 @@ void draw(void)
 {
 	for (int i = 0; i < d; i++)
 	{
-		printf ("board[0][%d] = %d\n", i, board[0][i]);
+		for (int j = 0; j < d; j++)
+		{
+			printf ("board[%d][%d] = %d\n", i, j, board[i][j]);
+		}
 	}
 }
 
