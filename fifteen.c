@@ -193,6 +193,9 @@ void init(void)
  */
 void draw(void)
 {
+	/**
+	 * Code initially used to visualize the correct 
+	 * initialization of the board
 	for (int i = 0; i < d; i++)
 	{
 		for (int j = 0; j < d; j++)
@@ -200,6 +203,23 @@ void draw(void)
 			printf ("board[%d][%d] = %d\n", i, j, board[i][j]);
 		}
 	}
+	*/
+
+	// Nested loop required to draw the board
+	for (int i = 0; i < d; i++)
+	{
+		for (int j = 0; j < d; j++)
+		{
+			// Checks for the blank character (zero), represented as "_"
+			if (board[i][j] == 0)
+				printf(" _ ");
+			else
+				printf("%2d ", board[i][j]);
+			
+		}
+		printf("\n");
+	}
+
 }
 
 /**
